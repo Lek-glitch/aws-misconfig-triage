@@ -1,0 +1,87 @@
+{
+  "source": "Mock data (demo mode)",
+  "generated_at": "2026-09-23T13:24:38.237432+00:00",
+  "total_findings": 10,
+  "findings": [
+    {
+      "check_id": "S3-001",
+      "title": "Public S3 bucket: orca-demo-logs-archive",
+      "severity": "CRITICAL",
+      "resource": "orca-demo-logs-archive",
+      "description": "Bucket 'orca-demo-logs-archive' grants AllUsers WRITE access and Public Access Block is not fully enabled.",
+      "runbook": "public-s3-bucket.md"
+    },
+    {
+      "check_id": "SG-001",
+      "title": "SSH open to internet: web-sg",
+      "severity": "CRITICAL",
+      "resource": "sg-0a1b2c3d",
+      "description": "Security group 'web-sg' (sg-0a1b2c3d) allows inbound SSH (port 22) from 0.0.0.0/0. This port is commonly targeted by automated scanners within minutes of exposure.",
+      "runbook": "open-security-group.md"
+    },
+    {
+      "check_id": "SG-001",
+      "title": "RDP open to internet: db-sg",
+      "severity": "CRITICAL",
+      "resource": "sg-0e4f5g6h",
+      "description": "Security group 'db-sg' (sg-0e4f5g6h) allows inbound RDP (port 3389) from 0.0.0.0/0. This port is commonly targeted by automated scanners within minutes of exposure.",
+      "runbook": "open-security-group.md"
+    },
+    {
+      "check_id": "IAM-002",
+      "title": "Wildcard admin policy: FullAdminAccess-legacy",
+      "severity": "CRITICAL",
+      "resource": "legacy-admin",
+      "description": "Policy 'FullAdminAccess-legacy' attached to 'legacy-admin' grants Action:* on Resource:* \u2014 equivalent to full account admin access.",
+      "runbook": "wildcard-iam-policy.md"
+    },
+    {
+      "check_id": "S3-001",
+      "title": "Public S3 bucket: orca-demo-public-assets",
+      "severity": "HIGH",
+      "resource": "orca-demo-public-assets",
+      "description": "Bucket 'orca-demo-public-assets' grants AllUsers READ access and Public Access Block is not fully enabled.",
+      "runbook": "public-s3-bucket.md"
+    },
+    {
+      "check_id": "IAM-001",
+      "title": "IAM user without MFA: svc-ci-deploy",
+      "severity": "HIGH",
+      "resource": "svc-ci-deploy",
+      "description": "User 'svc-ci-deploy' has no MFA device registered. Access key age: 412 days.",
+      "runbook": "iam-no-mfa.md"
+    },
+    {
+      "check_id": "IAM-001",
+      "title": "IAM user without MFA: legacy-admin",
+      "severity": "HIGH",
+      "resource": "legacy-admin",
+      "description": "User 'legacy-admin' has no MFA device registered. Access key age: 730 days.",
+      "runbook": "iam-no-mfa.md"
+    },
+    {
+      "check_id": "SG-002",
+      "title": "Port 443 open to internet: web-sg",
+      "severity": "MEDIUM",
+      "resource": "sg-0a1b2c3d",
+      "description": "Security group 'web-sg' (sg-0a1b2c3d) allows inbound traffic on port 443 from 0.0.0.0/0. Confirm this is intentional (e.g. a public web server on 443).",
+      "runbook": "open-security-group.md"
+    },
+    {
+      "check_id": "EBS-001",
+      "title": "Unencrypted EBS volume: vol-0abc111",
+      "severity": "MEDIUM",
+      "resource": "vol-0abc111",
+      "description": "Volume 'vol-0abc111' (100 GiB), attached to i-0prod01, is not encrypted. Data at rest is not protected if the underlying storage is compromised.",
+      "runbook": "unencrypted-ebs.md"
+    },
+    {
+      "check_id": "EBS-001",
+      "title": "Unencrypted EBS volume: vol-0abc333",
+      "severity": "MEDIUM",
+      "resource": "vol-0abc333",
+      "description": "Volume 'vol-0abc333' (20 GiB), attached to i-0staging01, is not encrypted. Data at rest is not protected if the underlying storage is compromised.",
+      "runbook": "unencrypted-ebs.md"
+    }
+  ]
+}
